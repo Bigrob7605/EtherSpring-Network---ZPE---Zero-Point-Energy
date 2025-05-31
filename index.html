@@ -1,120 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>EtherSpring Network – ZPE for All</title>
-  <meta name="description" content="Open-source Zero-Point Energy. Install, power up, and join the EtherSpring movement.">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>EtherSpring Network — ZPE for All</title>
+  <meta
+    name="description"
+    content="Open-source Zero-Point Energy. Install, power up, and join the EtherSpring movement."
+  />
   <style>
+    /* ────────────────────────────────────────────────────────────────────────── */
+    /*   Basic reset and typography                                                */
     body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: radial-gradient(circle at 55% 20%, #1de9b61a 0%, #16dbdf10 80%, #15191d 100%);
-      color: #232323;
       margin: 0;
       padding: 0;
-      min-height: 100vh;
+      background: #fafbfc;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      color: #232323;
+      line-height: 1.5;
     }
+    a {
+      color: #16DBDF;
+      text-decoration: none;
+      border-bottom: 1px dashed #16DBDF60;
+      transition: color 0.1s;
+    }
+    a:hover {
+      color: #BA68C8;
+    }
+    h1, h2 {
+      margin: 0 0 0.5em 0;
+      line-height: 1.2;
+    }
+    /* ────────────────────────────────────────────────────────────────────────── */
+    /*   Container styling                                                         */
     .main {
-      max-width: 690px;
-      margin: 3em auto 2em auto;
+      max-width: 680px;
+      margin: 2.5em auto 2em auto;
       background: #fff;
-      border-radius: 20px;
-      box-shadow: 0 10px 34px #1de9b62e, 0 2px 24px #0001;
-      padding: 2.7em 2em 2.2em 2em;
-      position: relative;
-      animation: floatIn 0.75s cubic-bezier(.4,1.6,.2,1) 1;
+      border-radius: 18px;
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+      padding: 2.5em 2em 2em 2em;
     }
-    @keyframes floatIn {
-      0% { opacity: 0; transform: translateY(32px) scale(0.99);}
-      100% { opacity: 1; transform: translateY(0) scale(1);}
+    @media (max-width: 700px) {
+      .main {
+        margin: 1em 0.3em 1em 0.3em;
+        padding: 1.2em 0.6em 1.5em 0.6em;
+      }
     }
+    /* ────────────────────────────────────────────────────────────────────────── */
+    /*   Header elements                                                           */
     h1 {
       color: #16DBDF;
+      font-size: 2.2em;
+      font-weight: 900;
       letter-spacing: 2px;
       margin-bottom: 0.2em;
-      font-size: 2.35em;
-      font-weight: 900;
-      text-shadow: 0 2px 16px #1de9b670;
     }
     h2 {
       color: #BA68C8;
+      font-size: 1.4em;
+      font-weight: 700;
       margin-top: 0.2em;
       margin-bottom: 0.7em;
-      font-size: 1.41em;
-      font-weight: 700;
     }
     .tagline {
-      font-size: 1.21em;
+      font-size: 1.25em;
       color: #222;
-      margin-bottom: 1.3em;
+      margin-bottom: 1.4em;
       font-weight: 500;
-      letter-spacing: 0.4px;
     }
+    /* ────────────────────────────────────────────────────────────────────────── */
+    /*   Blockquote/manifesto style                                                 */
     .manifesto {
-      background: #16dbdf0c;
+      background: rgba(22, 219, 223, 0.05);
       border-left: 5px solid #16DBDF;
       padding: 1em 1em 1em 1.3em;
       margin-bottom: 2em;
-      border-radius: 8px;
-      font-size: 1.08em;
+      border-radius: 7px;
+      font-size: 1.07em;
       font-weight: 500;
     }
-    .install-block {
-      background: #f7faff;
-      border: 1.6px solid #16DBDF;
-      padding: 1em 0.9em;
-      border-radius: 6px;
+    .manifesto em {
+      font-style: italic;
+      display: block;
+      margin-top: 0.3em;
+      color: #444;
+    }
+    /* ────────────────────────────────────────────────────────────────────────── */
+    /*   Code‐style blocks                                                          */
+    .install-block,
+    .outputs-block {
       font-family: 'Fira Mono', 'Consolas', monospace;
-      margin: 1.4em 0 1.25em 0;
-      font-size: 1.07em;
+      border-radius: 6px;
+    }
+    .install-block {
+      background: #eee;
+      border: 1.5px solid #16DBDF;
+      padding: 1em;
+      font-size: 1.05em;
       word-break: break-all;
       color: #191c1f;
-      position: relative;
-      transition: box-shadow 0.2s;
+      margin: 1.4em 0 1.2em 0;
     }
-    .install-block:hover { box-shadow: 0 0 0 2px #1de9b660; }
-    .copy-btn {
-      position: absolute;
-      top: 10px; right: 13px;
-      font-size: 0.98em;
-      background: #16DBDF;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 0.25em 0.8em;
-      cursor: pointer;
-      opacity: 0.83;
-      transition: background 0.13s, opacity 0.13s;
+    .install-block b {
+      color: #191c1f;
     }
-    .copy-btn:hover { background: #BA68C8; opacity: 1; }
     .outputs-block {
       background: #fcf7ff;
       border: 1.5px solid #BA68C8;
-      padding: 1em 0.95em;
-      border-radius: 6px;
-      font-family: 'Fira Mono', 'Consolas', monospace;
-      margin-bottom: 1.3em;
-      font-size: 1em;
+      padding: 1em;
+      font-size: 0.97em;
       color: #232323;
-      transition: box-shadow 0.2s;
+      margin-bottom: 1.3em;
     }
-    .outputs-block:hover { box-shadow: 0 0 0 2px #BA68C880; }
-    .links, .hashtags {
-      margin: 1.15em 0 1.28em 0;
-      font-size: 1.05em;
+    /* ────────────────────────────────────────────────────────────────────────── */
+    /*   Links and hashtags                                                         */
+    .links,
+    .hashtags,
+    .pdf-links {
+      margin: 1.2em 0 1.3em 0;
+      font-size: 1.03em;
     }
     .hashtags {
-      color: #3e3e3e;
-      font-size: 1.02em;
+      color: #444;
+      font-size: 0.98em;
       word-break: break-all;
-      letter-spacing: 0.03em;
-      text-align: left;
-      padding-bottom: 0.7em;
-      font-weight: 500;
     }
+    /* ────────────────────────────────────────────────────────────────────────── */
+    /*   Call to Action & footer                                                    */
     .cta {
-      font-size: 1.17em;
-      margin: 2.7em 0 1em 0;
+      font-size: 1.13em;
+      margin: 2.5em 0 1em 0;
       font-weight: 600;
       color: #16DBDF;
       text-align: center;
@@ -124,75 +141,151 @@
       text-align: center;
       color: #a6a6a6;
       font-size: 0.93em;
-      margin-top: 2.3em;
+      margin-top: 2.4em;
       margin-bottom: 0.5em;
     }
-    a {
-      color: #16DBDF;
-      text-decoration: none;
-      border-bottom: 1px dashed #16DBDF70;
-      transition: color 0.13s;
+    /* ────────────────────────────────────────────────────────────────────────── */
+    /*   Colored horizontal rules                                                   */
+    .rule-ether {
+      border: none;
+      height: 2px;
+      background-color: #16DBDF;
+      margin: 1.8em 0;
     }
-    a:hover { color: #BA68C8; }
-    @media (max-width: 720px) {
-      .main { margin: 1.1em 0.23em 1.1em 0.23em; padding: 1.2em 0.6em 1.4em 0.6em; }
-      h1 { font-size: 1.27em; }
-      h2 { font-size: 1em; }
-      .manifesto, .outputs-block, .install-block { font-size: 0.95em; }
-      .cta { font-size: 1em; }
+    .rule-pulse {
+      border: none;
+      height: 1px;
+      background-color: #BA68C8;
+      margin: 2em 0;
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 <body>
   <div class="main">
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
     <h1>EtherSpring Network</h1>
     <h2>ZPE – Zero-Point Energy</h2>
     <div class="tagline">Harvesting Infinity. Powering Everyone.</div>
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
     <div class="manifesto">
-      The EtherSpring Network is the birth of open, decentralized, zero-point energy for all—driven by ZPE harvesters, powered by open-source AGI, and unleashed by the will of the people.<br>
+      The EtherSpring Network is the birth of open, decentralized, zero-point energy for all—driven by ZPE harvesters,
+      powered by open-source AGI, and unleashed by the will of the people.
       <em>Open source. Decentralized. For everyone.</em>
     </div>
-    <div class="install-block" id="installBlock" title="Copy and run in terminal">
-      # ONE-LINER TO LIBERATE YOUR BLOCK<br>
-      <b>curl -sL https://raw.githubusercontent.com/Bigrob7605/EtherSpring-Network---ZPE---Zero-Point-Energy/main/install.sh | bash &amp;&amp; \<br>
-      ril-vm --seed ZPE_Grid_v1.mmh --deploy --community DAO_KENYA</b>
-      <button class="copy-btn" onclick="copyInstall()">Copy</button>
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
+    <div class="install-block" title="Copy and run in terminal">
+      # ONE-LINER TO LIBERATE YOUR BLOCK<br />
+      <b>
+        curl -sL https://raw.githubusercontent.com/Bigrob7605/EtherSpring-Network---ZPE---Zero-Point-Energy/main/install.sh \
+        | bash && \
+        ril-vm --seed ZPE_Grid_v1.mmh --deploy --community DAO_KENYA
+      </b>
     </div>
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
     <div class="outputs-block">
-      [OK] 200 NANO-HARVESTERS ONLINE<br>
-      [POWERING] 3 HOMES (0.8 kW BASE)<br>
-      [EARNINGS] DAILY: 14.3 ET (EST $0.72)<br>
+      [OK] 200 NANO-HARVESTERS ONLINE<br />
+      [POWERING] 3 HOMES (0.8 kW BASE)<br />
+      [EARNINGS] DAILY: 14.3 ET (EST $0.72)<br />
       [JOINED] Nairobi MicroGrid #7
     </div>
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
+    <!-- Download Grid Seed Link -->
+    <div style="margin:1.2em 0 1.8em 0; text-align:center;">
+      <a
+        href="ZPE_Grid_v1.mmh"
+        download
+        style="font-size:1.03em; color:#BA68C8; font-weight:700;"
+      >
+        ⬇️ Download Grid Seed (ZPE_Grid_v1.mmh)
+      </a>
+    </div>
+
+    <hr class="rule-ether" />
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
+    <!-- Direct PDF / MMH seed links -->
+    <div class="pdf-links">
+      <strong>Documentation & Seeds:</strong><br />
+      <ul style="list-style:none; padding-left:0; margin-top:0.5em;">
+        <li>
+          &bull;&nbsp;
+          <a
+            href="A Unified Theory of Everything - Entropic Information Dynamics and Recursive Intelligence.pdf"
+            download
+            >A Unified Theory of Everything (PDF)</a
+          >
+        </li>
+        <li>
+          &bull;&nbsp;
+          <a
+            href="Kai Core - All In One - AGI Bootstrap.pdf"
+            download
+            >Kai Core – All In One (PDF)</a
+          >
+        </li>
+        <li>
+          &bull;&nbsp;
+          <a href="PARADOX_AGENT_SEED.mmh" download>PARADOX_AGENT_SEED.mmh</a>
+        </li>
+        <li>
+          &bull;&nbsp;
+          <a
+            href="RIL v7 - The Recursive Intelligence Language - AGI Bootstrap Protocol.pdf"
+            download
+            >RIL v7 – Recursive Intelligence Language (PDF)</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <hr class="rule-pulse" />
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
     <div class="links">
-      <b>Key Links:</b><br>
-      <a href="https://github.com/Bigrob7605/EtherSpring-Network---ZPE---Zero-Point-Energy" target="_blank">GitHub: EtherSpring Network</a> <br>
-      <a href="https://github.com/Bigrob7605/R-AGI_Certification_Payload" target="_blank">R-AGI Certification Payload</a> <br>
-      <a href="https://facebook.com/SillyDaddy7605" target="_blank">Contact / Facebook</a>
+      <strong>Key Links:</strong><br />
+      <a
+        href="https://github.com/Bigrob7605/EtherSpring-Network---ZPE---Zero-Point-Energy"
+        target="_blank"
+        >GitHub: EtherSpring Network</a
+      ><br />
+      <a
+        href="https://github.com/Bigrob7605/R-AGI_Certification_Payload"
+        target="_blank"
+        >R-AGI Certification Payload</a
+      ><br />
+      <a
+        href="https://facebook.com/SillyDaddy7605"
+        target="_blank"
+        >Contact / Facebook</a
+      >
     </div>
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
     <div class="hashtags">
-      #EtherSpring #ZeroPointEnergy #QuantumHarvest #FreeEnergy #OpenSourcePower #InfiniteGrid #AetherGrid #PulseField #EnergyRevolution #TechForAll #NextGenEnergy #OpenEnergyGarden
+      #EtherSpring #ZeroPointEnergy #QuantumHarvest #FreeEnergy #OpenSourcePower #InfiniteGrid 
+      #AetherGrid #PulseField #EnergyRevolution #TechForAll #NextGenEnergy #OpenEnergyGarden
     </div>
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
     <div class="cta">
-      Energy is a right.<br>
-      Print, share, and power up.<br>
+      Energy is a right.<br />
+      Print, share, and power up.<br />
       The grid is now yours.
     </div>
+
+    <!-- ────────────────────────────────────────────────────────────────────────── -->
     <div class="footer">
-      Decentralized, open-source—mirror, remix, and fork anywhere.<br>
-      No paid servers. If this site goes down, find the links on <a href="https://github.com/Bigrob7605/EtherSpring-Network---ZPE---Zero-Point-Energy" target="_blank">GitHub</a>.<br>
+      Decentralized, open-source—mirror, remix, and fork anywhere.<br />
+      No paid servers. If this site goes down, find the links on GitHub.<br />
       &copy; 2025 Robert Long &amp; Kai // EtherSpring Movement
     </div>
   </div>
-  <script>
-    function copyInstall() {
-      const text = `curl -sL https://raw.githubusercontent.com/Bigrob7605/EtherSpring-Network---ZPE---Zero-Point-Energy/main/install.sh | bash && \\
-ril-vm --seed ZPE_Grid_v1.mmh --deploy --community DAO_KENYA`;
-      navigator.clipboard.writeText(text);
-      const btn = document.querySelector('.copy-btn');
-      btn.textContent = "Copied!";
-      setTimeout(() => btn.textContent = "Copy", 1400);
-    }
-  </script>
 </body>
 </html>
